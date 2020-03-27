@@ -2,7 +2,7 @@ from flask import Flask, request, Response
 
 app = Flask(__name__)
 
-response = "yes"
+response = ""
 
 @app.route("/", methods=["GET", "POST"])
 def home():
