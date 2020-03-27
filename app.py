@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask, request, make_response
 
 app = Flask(__name__)
 
@@ -22,8 +22,9 @@ def home():
     elif text == "2":
         response = "END Phone number"
 
-    ##Response(headers={"Content-type": "text/plain"})
-    return response
+    view = make_response(response)
+    view.headers["Content-type"] = "text/plain"
+    return view
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=6060, debug=True)
